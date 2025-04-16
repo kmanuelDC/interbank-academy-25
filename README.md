@@ -1,66 +1,60 @@
-# Reto Técnico: Procesamiento de Transacciones Bancarias (CLI)
+# 💰 Reporte de Transacciones - Interbank Academy 25
 
-## Objetivo:
+## 📌 Introducción
 
-Desarrolla una aplicación de línea de comandos (CLI) que procese un archivo CSV con transacciones bancarias y genere un reporte que incluya:
+Este proyecto desarrolla una pequeña aplicación de análisis de transacciones financieras a partir de un archivo CSV. Su objetivo es generar un reporte simple y claro que detalle:
 
-- **Balance Final:**  
-  Suma de los montos de las transacciones de tipo "Crédito" menos la suma de los montos de las transacciones de tipo "Débito".
-
-- **Transacción de Mayor Monto:**  
-  Identificar el ID y el monto de la transacción con el valor más alto.
-
-- **Conteo de Transacciones:**  
-  Número total de transacciones para cada tipo ("Crédito" y "Débito").
+- El balance final de las transacciones.
+- La transacción de mayor monto.
+- El número de transacciones por tipo (Crédito y Débito).
 
 ---
 
-## Instrucciones
+## ▶️ Instrucciones de Ejecución
 
-1. **Repositorio Base:**  
-   Clona o haz un fork del repositorio base disponible en:  
-   `https://github.com/codeableorg/interbank-academy-25`
+### 1. Clonar el repositorio (si aplica)
+```bash
+git clone https://github.com/kmanuelDC/interbank-academy-25.git
+cd interbank-academy-25
+```
 
-2. **Entrada de Datos:**  
-   La aplicación deberá leer un archivo CSV. Ejemplo de contenido:
+### 2. Crear un archivo CSV
+```bash
+touch data.csv
+id,tipo,monto
+1,Débito,235.81
+2,Débito,227.59
+3,Crédito,34.28
+4,Crédito,309.36
+5,Crédito,418.59
+.....
+```
 
-   ```
-   id,tipo,monto
-   1,Crédito,100.00
-   2,Débito,50.00
-   3,Crédito,200.00
-   4,Débito,75.00
-   5,Crédito,150.00
-   ```
+### 3.Estructura del proyecto
 
-3. **Salida del Programa:**  
-   La aplicación debe mostrar el reporte final en la terminal.  
-   Ejemplo de salida:
+```
+├── README.md
+├── calculatorBalance.py
+└── data.csv
 
-   ```
-   Reporte de Transacciones
-   ---------------------------------------------
-   Balance Final: 325.00
-   Transacción de Mayor Monto: ID 3 - 200.00
-   Conteo de Transacciones: Crédito: 3 Débito: 2
-   ```
+balance_final
+Agrupé los datos por tipo para calcular el balance final de manera más simple y estructurada, en solo dos pasos.
 
-4. **Lenguaje de Programación:**  
-   Utiliza el lenguaje de tu preferencia. Opciones recomendadas:
+trans_max
+Utilicé Pandas para obtener el registro con el monto más alto y asignarlo a una variable como un objeto completo (fila).
 
-   - Python
-   - Java
-   - C#
-   - JavaScript (Node.js)
+count
+Con Pandas, también generé un objeto tipo DataFrame que muestra el conteo de transacciones agrupadas por tipo.
 
-5. **README del Proyecto:**  
-   Incluye un archivo `README.md` con la siguiente estructura:
 
-   - **Introducción:** Breve descripción del reto y su propósito.
-   - **Instrucciones de Ejecución:** Cómo instalar dependencias y ejecutar la aplicación.
-   - **Enfoque y Solución:** Lógica implementada y decisiones de diseño.
-   - **Estructura del Proyecto:** Archivos y carpetas principales.
+```
 
-6. **Documentación y Calidad del Código:**
-   - Código bien documentado y fácil de leer.
-   - Comentarios explicando pasos clave y lógica del programa.
+### 4.Instalar dependencias
+```bash
+pip install pandas
+```
+
+### 5. Ejecutar el script
+```bash
+python calculatorBalance.py
+```
